@@ -34,10 +34,7 @@ export async function PUT(request, { params }) {
       return NextResponse.json({ message: updatedPost }, { status: 200 });
     } else {
       // @ts-ignore
-      return NextResponse.json(
-        { message: validation.error.errors },
-        { status: 400 }
-      );
+      return NextResponse.json({ message: validation.errors }, { status: 400 });
     }
   } catch (err) {
     return NextResponse.json({ message: err.message }, { status: 400 });

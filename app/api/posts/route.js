@@ -30,10 +30,7 @@ export async function POST(request) {
       return NextResponse.json({ message: registeredPost }, { status: 200 });
     } else {
       // @ts-ignore
-      return NextResponse.json(
-        { message: validation.error.errors },
-        { status: 400 }
-      );
+      return NextResponse.json({ message: validation.errors }, { status: 400 });
     }
   } catch (err) {
     return NextResponse.json({ message: err.message }, { status: 400 });
